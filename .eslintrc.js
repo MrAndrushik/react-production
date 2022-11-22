@@ -8,6 +8,7 @@ module.exports = {
         'plugin:react/jsx-runtime',
         'standard-with-typescript',
         'prettier',
+        'plugin:i18next/recommended',
     ],
     overrides: [],
     parserOptions: {
@@ -15,7 +16,7 @@ module.exports = {
         sourceType: 'module',
         project: ['./tsconfig.json'],
     },
-    plugins: ['react'],
+    plugins: ['react', 'i18next'],
     rules: {
         semi: ['error', 'always'],
         quotes: ['error', 'single'],
@@ -24,5 +25,6 @@ module.exports = {
         '@typescript-eslint/strict-boolean-expressions': 'off',
         '@typescript-eslint/explicit-function-return-type': 'warn',
         '@typescript-eslint/no-floating-promises': 'warn',
+        'i18next/no-literal-string': 2,
     },
 };
