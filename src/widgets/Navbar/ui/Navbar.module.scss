@@ -6,6 +6,9 @@
     align-items: center;
     padding: 20px;
     justify-content: space-between;
+    position: relative;
+    z-index: 1;
+    box-shadow: 1px 1px 10px var(--primary-color);
 }
 
 .linkWrapper {

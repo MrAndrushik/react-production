@@ -3,9 +3,9 @@ import './styles/index.scss';
 
 import { AppRouter } from 'app/providers/router';
 import { useTheme } from 'app/providers/ThemeProvider';
+import { FC, Suspense } from 'react';
 import { Navbar } from 'widgets/Navbar';
 import { Sidebar } from 'widgets/Sidebar';
-import { FC, Suspense } from 'react';
 
 export const App: FC = () => {
     const { theme } = useTheme();

@@ -5,3 +5,10 @@
     background: none;
     outline: none;
 }
+
+.error {
+    padding: 10px 20px;
+    background: var(--inverted-bg-color);
+    color: var(--primary-color);
+    font-weight: 500;
+}
