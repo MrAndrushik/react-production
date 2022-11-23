@@ -2,6 +2,7 @@ module.exports = {
     env: {
         browser: true,
         es2021: true,
+        jest: true,
     },
     extends: [
         'plugin:react/recommended',
@@ -23,8 +24,9 @@ module.exports = {
         indent: ['error', 4],
         'comma-dangle': ['error', 'only-multiline'],
         '@typescript-eslint/strict-boolean-expressions': 'off',
-        '@typescript-eslint/explicit-function-return-type': 'warn',
+        '@typescript-eslint/explicit-function-return-type': 'off',
         '@typescript-eslint/no-floating-promises': 'warn',
+        '@typescript-eslint/no-unused-vars': 'warn',
         'i18next/no-literal-string': 2,
     },
 };
