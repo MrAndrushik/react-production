@@ -11,9 +11,11 @@
         "lint:ts:fix": "npx eslint \"**/*.{ts,tsx}\" --fix",
         "lint:scss": "npx stylelint \"**/*.scss\"",
         "lint:scss:fix": "npx stylelint \"**/*.scss\" --fix",
-        "unit": "npx jest --config ./config/jest/jest.config.ts",
+        "test:unit": "npx jest --config ./config/jest/jest.config.ts",
+        "test:ui": "npx loki test",
+        "test:ui:ok": "npx loki approve",
         "storybook": "start-storybook --ci -p 6006 -c ./config/storybook",
-        "build-storybook": "build-storybook"
+        "storybook-build": "build-storybook -c ./config/storybook"
     },
     "devDependencies": {
         "@babel/core": "^7.17.5",
