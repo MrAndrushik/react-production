@@ -17,7 +17,7 @@ module.exports = {
         sourceType: 'module',
         project: ['./tsconfig.json'],
     },
-    plugins: ['react', 'i18next'],
+    plugins: ['react', 'i18next', 'react-hooks'],
     rules: {
         semi: ['error', 'always'],
         quotes: ['error', 'single'],
@@ -29,5 +29,7 @@ module.exports = {
         '@typescript-eslint/no-unused-vars': 'warn',
         'i18next/no-literal-string': 2,
         '@typescript-eslint/consistent-type-assertions': 'off',
+        'react-hooks/rules-of-hooks': 'error',
+        'react-hooks/exhaustive-deps': 'error',
     },
 };

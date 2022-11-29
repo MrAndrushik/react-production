@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap');
 
 :root {
+    // FONTS
     --font-family-main: 'Rubik', sans-serif;
     --font-size-m: 16px;
     --font-line-m: 24px;
@@ -8,8 +9,18 @@
     --font-size-l: 24px;
     --font-line-l: 32px;
     --font-l: var(--font-size-l) / var(--font-line-l) var(--font-family-main);
-    --navbar-height: 50px;
+
+    // SIZES
+    --navbar-height: 60px;
     --sidebar-width: 300px;
     --sidebar-width-collapsed: 80px;
+
+    // TRANSITION
     --transition: all 0.3s ease;
+
+    // Z-index
+    --modal-z-index: 10;
+
+    // COLORS
+    --overlay-color: rgba(0 0 0 / 80%);
 }

@@ -2,6 +2,15 @@
     outline: none;
     color: var(--primary-color);
     transition: var(--transition);
+    border: none;
+    background: var(--inverted-bg-color);
+    padding: 10px 20px;
+    font-weight: 500;
+
+    &:hover {
+        transform: scale(1.1);
+        outline: none;
+    }
 }
 
 .clear {
@@ -12,10 +21,8 @@
 }
 
 .outline {
-    padding: 10px 20px;
-    background: var(--inverted-bg-color);
-    color: var(--primary-color);
-    font-weight: 500;
+    background: none;
+    border: 1px solid var(--inverted-bg-color);
 }
 
 .circle {
