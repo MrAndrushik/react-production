@@ -1,8 +1,9 @@
 import { FC } from 'react';
-import { useTranslation } from 'react-i18next';
+import LogoDark from 'shared/assets/icons/logo-dark.svg';
+import LogoLight from 'shared/assets/icons/logo-light.svg';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { AppLink } from 'shared/ui/AppLink/AppLink';
 
+import { Theme, useTheme } from 'app/providers/ThemeProvider';
 import cls from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -10,14 +11,12 @@ interface NavbarProps {
 }
 
 export const Navbar: FC<NavbarProps> = ({ className }) => {
-    const { t } = useTranslation();
+    const { theme } = useTheme();
 
     return (
         <div className={classNames(cls.Navbar, {}, [className])}>
-            <div className={cls.linkWrapper}>
-                <AppLink to={'/'}>{t('Главная')}</AppLink>
-                <AppLink to={'/about'}>{t('О нас')}</AppLink>
-            </div>
+            {theme === Theme.DARK ? <LogoLight /> : <LogoDark />}
+            <div className={cls.linkWrapper}></div>
         </div>
     );
 };

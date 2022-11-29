@@ -1,6 +1,7 @@
 .Button {
     outline: none;
     color: var(--primary-color);
+    transition: var(--transition);
 }
 
 .clear {
@@ -15,4 +16,8 @@
     background: var(--inverted-bg-color);
     color: var(--primary-color);
     font-weight: 500;
+}
+
+.circle {
+    border-radius: 50%;
 }

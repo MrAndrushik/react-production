@@ -7,9 +7,10 @@ import cls from './LangSwitcher.module.scss';
 
 interface LangSwitcherProps {
     className?: string;
+    collapsed?: boolean;
 }
 
-export const LangSwitcher = ({ className }: LangSwitcherProps) => {
+export const LangSwitcher = ({ className, collapsed }: LangSwitcherProps) => {
     const { i18n } = useTranslation();
     const { theme } = useTheme();
 
@@ -22,12 +23,13 @@ export const LangSwitcher = ({ className }: LangSwitcherProps) => {
             className={classNames(cls.LangSwitcher, {}, [className])}
             theme={ThemeButton.CLEAR}
         >
-            {theme === Theme.LIGHT ? (
-                <GlobusIcon fill='#fff' />
-            ) : (
-                <GlobusIcon fill='#000f09' />
-            )}
-            {i18n.language}
+            {!collapsed &&
+                (theme === Theme.LIGHT ? (
+                    <GlobusIcon fill='#fff' />
+                ) : (
+                    <GlobusIcon fill='#000f09' />
+                ))}
+            {i18n.language?.toUpperCase()}
         </Button>
     );
 };

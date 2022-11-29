@@ -4,14 +4,10 @@
     background: var(--inverted-bg-color);
     position: relative;
     transition: width 0.3s ease;
-    padding: 20px 5px;
+    padding: 20px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-}
-
-.collapsed {
-    width: var(--sidebar-width-collapsed);
 }
 
 .switchers {
@@ -19,4 +15,65 @@
     justify-content: center;
     flex-direction: column;
     gap: 20px;
+}
+
+.sideButton {
+    position: absolute;
+    right: -20px;
+    bottom: 100px;
+    width: 40px;
+    height: 40px;
+    background-color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    transform: rotate(180deg);
+
+    &:hover {
+        transform: rotate(180deg) scale(1.1);
+    }
+}
+
+.sideButtonActive {
+    transform: rotate(0deg);
+
+    &:hover {
+        transform: rotate(0deg) scale(1.1);
+    }
+}
+
+.navList {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.navItem {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;
+}
+
+.icon {
+    min-width: 20px;
+    display: flex;
+    align-items: center;
+
+    & svg {
+        fill: var(--primary-color);
+    }
+}
+
+.collapsed {
+    width: var(--sidebar-width-collapsed);
+
+    .navItem {
+        justify-content: center;
+
+        & > span {
+            display: none;
+        }
+    }
 }
