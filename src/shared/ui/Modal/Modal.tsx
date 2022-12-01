@@ -15,6 +15,7 @@ interface ModalProps {
     isOpen?: boolean;
     onClose?: () => void;
     lazy?: boolean;
+    portalElement?: HTMLElement;
 }
 
 const ANIMATION_DELAY = 300;
@@ -23,6 +24,7 @@ export const Modal = ({
     className,
     children,
     isOpen,
+    portalElement = document.getElementById('app'),
     onClose,
     lazy,
 }: ModalProps) => {
@@ -81,7 +83,7 @@ export const Modal = ({
     }
 
     return (
-        <Portal element={document.querySelector('.app')}>
+        <Portal element={portalElement}>
             <div className={classNames(cls.Modal, mods, [className])}>
                 <div className={cls.overlay} onClick={closeHandler}>
                     <div

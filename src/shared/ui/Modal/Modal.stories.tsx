@@ -12,6 +12,7 @@ const Template: ComponentStory<typeof Modal> = (args) => <Modal {...args} />;
 export const Normal = Template.bind({});
 Normal.args = {
     isOpen: true,
+    portalElement: document.body,
     children:
         'lorem20, lorem50lorem20, lorem50lorem20, lorem50lorem20, lorem50 lorem20, lorem50 lorem20, lorem50',
 };
