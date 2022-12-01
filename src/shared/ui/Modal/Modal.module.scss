@@ -19,12 +19,13 @@
 }
 
 .content {
-    padding: 20px;
+    padding: 20px 40px;
     border-radius: 20px;
     background: #fff;
     transition: var(--transition);
     transform: scale(0.5);
     max-width: 500px;
+    width: 100%;
 }
 
 .opened {

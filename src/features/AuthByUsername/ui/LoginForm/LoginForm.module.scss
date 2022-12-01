@@ -1,0 +1,15 @@
+.LoginForm {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.btn {
+    background: var(--primary-color);
+    color: #fff;
+    margin-top: 20px;
+
+    &:hover {
+        transform: none;
+    }
+}
