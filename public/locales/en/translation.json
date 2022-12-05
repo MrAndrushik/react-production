@@ -5,6 +5,12 @@
   "Обновить страницу": "Refresh the page",
   "Произошла ошибка": "An error has occurred",
   "Страница не найдена": "Page not found",
+  "Уменьшить": "Уменьшить",
+  "Увеличить": "Увеличить",
   "Войти": "Sign in",
-  "Аккаунт": "Account"
+  "Аккаунт": "Account",
+  "Форма авторизации": "Auth form",
+  "User not found": "User not found",
+  "Пароль не верный": "Password is wrong",
+  "Выйти": "Logout"
 }

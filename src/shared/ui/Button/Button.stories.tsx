@@ -34,3 +34,9 @@ OutlineLight.args = {
     theme: ThemeButton.OUTLINE,
 };
 OutlineLight.decorators = [ThemeDecorator(Theme.LIGHT)];
+
+export const DisabledBtn = Template.bind({});
+DisabledBtn.args = {
+    children: 'Text',
+    disabled: true,
+};
