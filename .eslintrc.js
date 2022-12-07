@@ -32,5 +32,12 @@ module.exports = {
         'react-hooks/rules-of-hooks': 'error',
         'react-hooks/exhaustive-deps': 'error',
         '@typescript-eslint/no-dynamic-delete': 'off',
+        '@typescript-eslint/no-misused-promises': [
+            'error',
+            {
+                checksVoidReturn: false,
+            },
+        ],
+        'react/display-name': 'off',
     },
 };

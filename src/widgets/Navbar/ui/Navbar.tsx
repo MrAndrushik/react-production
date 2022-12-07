@@ -1,25 +1,26 @@
-import { FC, useCallback, useState } from 'react';
+import { memo, useCallback, useState } from 'react';
 import LogoDark from 'shared/assets/icons/logo-dark.svg';
 import LogoLight from 'shared/assets/icons/logo-light.svg';
 import { classNames } from 'shared/lib/classNames/classNames';
 
 import { Theme, useTheme } from 'app/providers/ThemeProvider';
+import { getUserAuthData, userActions } from 'entities/User';
 import { LoginModal } from 'features/AuthByUsername';
 import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Button } from 'shared/ui/Button/Button';
 import cls from './Navbar.module.scss';
-import { useDispatch, useSelector } from 'react-redux';
-import { getUserAuthData, userActions } from 'entities/User';
 
 interface NavbarProps {
     className?: string;
 }
 
-export const Navbar: FC<NavbarProps> = ({ className }) => {
+export const Navbar = memo(({ className }: NavbarProps) => {
     const { theme } = useTheme();
     const [isAuthModal, setIsAuthModal] = useState(false);
     const authData = useSelector(getUserAuthData);
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
     const { t } = useTranslation();
 
     const onCloseModal = useCallback(() => {
@@ -56,4 +57,4 @@ export const Navbar: FC<NavbarProps> = ({ className }) => {
             )}
         </div>
     );
-};
+});

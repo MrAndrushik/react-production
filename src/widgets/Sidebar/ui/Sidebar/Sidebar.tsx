@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { memo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Button, ThemeButton } from 'shared/ui/Button/Button';
@@ -7,16 +7,14 @@ import { ThemeSwitcher } from 'shared/ui/ThemeSwitcher/ThemeSwitcher';
 import cls from './Sidebar.module.scss';
 
 import SidebarIcon from 'shared/assets/icons/sidebar-icon.svg';
-import HomeIcon from 'shared/assets/icons/home.svg';
-import AboutIcon from 'shared/assets/icons/about.svg';
-import { AppLink } from 'shared/ui/AppLink/AppLink';
-import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+import { SidebarItemList } from '../model/items';
+import { SidebarItem } from '../SidebarItem/SidebarItem';
 
 interface SidebarProps {
     className?: string;
 }
 
-export const Sidebar = ({ className }: SidebarProps) => {
+export const Sidebar = memo(({ className }: SidebarProps) => {
     const [collapsed, setCollapsed] = useState<boolean>(false);
 
     const { t } = useTranslation();
@@ -46,22 +44,11 @@ export const Sidebar = ({ className }: SidebarProps) => {
             </Button>
             <nav className={cls.nav}>
                 <ul className={cls.navList}>
-                    <li>
-                        <AppLink className={cls.navItem} to={RoutePath.main}>
-                            <div className={cls.icon}>
-                                <HomeIcon />
-                            </div>
-                            <span>{t('Главная')}</span>
-                        </AppLink>
-                    </li>
-                    <li>
-                        <AppLink className={cls.navItem} to={RoutePath.about}>
-                            <div className={cls.icon}>
-                                <AboutIcon />
-                            </div>
-                            <span>{t('О нас')}</span>
-                        </AppLink>
-                    </li>
+                    {SidebarItemList.map((item) => (
+                        <li key={item.path}>
+                            <SidebarItem collapsed={collapsed} item={item} />
+                        </li>
+                    ))}
                 </ul>
             </nav>
             <div className={cls.switchers}>
@@ -70,4 +57,4 @@ export const Sidebar = ({ className }: SidebarProps) => {
             </div>
         </div>
     );
-};
+});
