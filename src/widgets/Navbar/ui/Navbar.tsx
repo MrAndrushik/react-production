@@ -34,15 +34,22 @@ export const Navbar: FC<NavbarProps> = ({ className }) => {
         dispatch(userActions.logout());
     }, [dispatch]);
 
+    if (authData) {
+        return (
+            <div className={classNames(cls.Navbar, {}, [className])}>
+                {theme === Theme.DARK ? <LogoLight /> : <LogoDark />}
+                <div className={cls.linkWrapper}>
+                    <Button onClick={onLogout}>{t('Выйти')}</Button>
+                </div>
+            </div>
+        );
+    }
+
     return (
         <div className={classNames(cls.Navbar, {}, [className])}>
             {theme === Theme.DARK ? <LogoLight /> : <LogoDark />}
             <div className={cls.linkWrapper}>
-                {authData ? (
-                    <Button onClick={onLogout}>{t('Выйти')}</Button>
-                ) : (
-                    <Button onClick={onShowModal}>{t('Войти')}</Button>
-                )}
+                <Button onClick={onShowModal}>{t('Войти')}</Button>
             </div>
             {isAuthModal && (
                 <LoginModal isOpen={isAuthModal} onClose={onCloseModal} />
