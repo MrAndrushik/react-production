@@ -39,5 +39,6 @@ module.exports = {
             },
         ],
         'react/display-name': 'off',
+        '@typescript-eslint/no-invalid-void-type': 'off',
     },
 };

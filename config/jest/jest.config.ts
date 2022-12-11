@@ -6,14 +6,11 @@
 import path from 'path';
 
 export default {
-    // All imported modules in your tests should be mocked automatically
-    // automock: false,
-
-    // Stop running tests after `n` failures
-    // bail: 0,
-
-    // The directory where Jest should store its cached dependency information
-    // cacheDirectory: "C:\\Users\\1\\AppData\\Local\\Temp\\jest",
+    // A set of global variables that need to be available in all test environments
+    globals: {
+        __IS_DEV__: true,
+        __API__: '',
+    },
 
     // Automatically clear mock calls, instances and results before every test
     clearMocks: true,
@@ -45,10 +42,14 @@ export default {
     // A list of paths to modules that run some code to configure or set up the testing framework before each test
     setupFilesAfterEnv: ['<rootDir>config/jest/setupTests.ts'],
 
-    // A set of global variables that need to be available in all test environments
-    globals: {
-        __IS_DEV__: true,
-    },
+    // All imported modules in your tests should be mocked automatically
+    // automock: false,
+
+    // Stop running tests after `n` failures
+    // bail: 0,
+
+    // The directory where Jest should store its cached dependency information
+    // cacheDirectory: "C:\\Users\\1\\AppData\\Local\\Temp\\jest",
 
     // Indicates whether the coverage information should be collected while executing the test
     // collectCoverage: false,

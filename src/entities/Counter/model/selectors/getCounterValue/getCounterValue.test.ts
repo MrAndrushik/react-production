@@ -1,6 +1,5 @@
 import { getCounterValue } from './getCounterValue';
 import { StateSchema } from 'app/providers/StoreProvider';
-import { DeepPartial } from '@reduxjs/toolkit';
 
 describe('getCounterValue.test', () => {
     test('expected value', () => {
