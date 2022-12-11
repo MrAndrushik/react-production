@@ -6,6 +6,7 @@ export enum ThemeButton {
     CLEAR = 'clear',
     OUTLINE = 'outline',
     CIRCLE = 'circle',
+    NONE = 'none',
 }
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
@@ -20,7 +21,7 @@ export const Button = memo((props: ButtonProps) => {
         className,
         disabled,
         children,
-        theme = ThemeButton.OUTLINE,
+        theme = ThemeButton.NONE,
         ...otherProps
     } = props;
 

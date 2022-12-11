@@ -19,14 +19,17 @@ interface TextProps {
 }
 
 export const Text = memo(
-    ({ className, title, titleType, text, theme }: TextProps) => {
+    ({
+        className,
+        title,
+        titleType,
+        text,
+        theme = TextTheme.PRIMARY,
+    }: TextProps) => {
         const { t } = useTranslation();
-        const mods = {
-            [cls.theme]: theme,
-        };
 
         return (
-            <div className={classNames(cls.Text, mods, [className])}>
+            <div className={classNames(cls.Text, {}, [className, cls[theme]])}>
                 {title && titleType === 'h1' && (
                     <h1 className={classNames(cls.title)}>{title}</h1>
                 )}
