@@ -8,3 +8,12 @@
         border: 1px solid var(--primary-color);
     }
 }
+
+.readonly {
+    opacity: 0.5;
+    border: 1px solid var(--primary-color);
+
+    &:focus {
+        border: 1px solid var(--primary-color);
+    }
+}

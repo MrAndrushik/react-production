@@ -1,13 +1,5 @@
 .ProfileCard {
-    padding: 20px;
-}
-
-.header {
-    display: flex;
-}
-
-.editBtn {
-    margin-left: auto;
+    // padding: 20px;
 }
 
 .data {
@@ -15,4 +7,23 @@
     display: flex;
     gap: 10px;
     flex-direction: column;
+}
+
+.loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 300px;
+}
+
+.error {
+    display: flex;
+}
+
+.avatarWrapper {
+    margin: 0 auto;
+}
+
+.select {
+    margin-top: 10px;
 }

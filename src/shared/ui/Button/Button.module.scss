@@ -25,6 +25,11 @@
     border: 1px solid var(--inverted-bg-color);
 }
 
+.outline_red {
+    background: none;
+    border: 1px solid var(--red-light);
+}
+
 .circle {
     border-radius: 50%;
 }

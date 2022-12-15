@@ -5,20 +5,21 @@ import {
     useEffect,
     useRef,
 } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import cls from './Input.module.scss';
 
 type HTMLInputProps = Omit<
     InputHTMLAttributes<HTMLInputElement>,
-    'value' | 'onChange'
+    'value' | 'onChange' | 'readOnly'
 >;
 
 interface InputProps extends HTMLInputProps {
     className?: string;
-    value?: string;
+    value?: string | number;
     type?: string;
     autoFocused?: boolean;
     onChange?: (value: string) => void;
+    readOnly?: boolean;
 }
 
 export const Input = memo(function Input(props: InputProps) {
@@ -28,6 +29,7 @@ export const Input = memo(function Input(props: InputProps) {
         onChange,
         type = 'text',
         autoFocused,
+        readOnly,
         ...otherProps
     } = props;
 
@@ -43,14 +45,19 @@ export const Input = memo(function Input(props: InputProps) {
         }
     }, [autoFocused]);
 
+    const mods: Mods = {
+        [cls.readonly]: readOnly,
+    };
+
     return (
         <input
             ref={ref}
-            className={classNames(cls.Input, {}, [className])}
+            className={classNames(cls.Input, mods, [className])}
             {...otherProps}
             type={type}
             value={value}
             onChange={onChangeHandler}
+            readOnly={readOnly}
         />
     );
 });
