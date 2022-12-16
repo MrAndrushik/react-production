@@ -6,9 +6,11 @@ import {
     getProfileForm,
     getProfileIsLoading,
     getProfileReadonly,
+    getProfileValidateErrors,
     profileActions,
     ProfileCard,
     profileReducer,
+    ValidateProfileError,
 } from 'entities/Profile';
 
 import { useCallback, useEffect } from 'react';
@@ -19,6 +21,7 @@ import {
     ReducersList,
 } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 
 const reducers: ReducersList = {
@@ -32,9 +35,18 @@ const ProfilePage = () => {
     const error = useSelector(getProfileError);
     const isLoading = useSelector(getProfileIsLoading);
     const readonly = useSelector(getProfileReadonly);
+    const validateErrors = useSelector(getProfileValidateErrors);
+
+    const validateProfileTranslates = {
+        [ValidateProfileError.SERVER_ERROR]: t('Серверная ошибка'),
+        [ValidateProfileError.INCORRECT_COUNTRY]: t('Не указан регион'),
+        [ValidateProfileError.INCORRECT_USER_DATA]: t('Данные не указаны'),
+        [ValidateProfileError.INCORRECT_AGE]: t('Некорректный возраст'),
+        [ValidateProfileError.NO_DATA]: t('Нет данных'),
+    };
 
     useEffect(() => {
-        dispatch(fetchProfileData());
+        if (__PROJECT__ !== 'storybook') dispatch(fetchProfileData());
     }, [dispatch]);
 
     const onChangeFirstname = useCallback(
@@ -89,6 +101,14 @@ const ProfilePage = () => {
     return (
         <DynamicModuleLoader reducers={reducers}>
             <ProfilePageHeader />
+            {validateErrors?.length &&
+                validateErrors.map((err) => (
+                    <Text
+                        key={err}
+                        theme={TextTheme.ERROR}
+                        text={validateProfileTranslates[err]}
+                    />
+                ))}
             <ProfileCard
                 data={data}
                 isLoading={isLoading}
