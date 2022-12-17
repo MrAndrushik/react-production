@@ -1,0 +1,19 @@
+.Code {
+    border: 1px solid var(--primary-color);
+    padding: 40px 20px 20px;
+    position: relative;
+    background: var(--code-bg);
+    overflow: auto;
+
+    &::-webkit-scrollbar {
+        width: 0;
+        height: 0;
+    }
+}
+
+.copyBtn {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    width: 20px;
+}

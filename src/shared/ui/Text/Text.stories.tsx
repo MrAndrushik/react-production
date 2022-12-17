@@ -2,7 +2,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { Theme } from '../../../app/providers/ThemeProvider';
 import { ThemeDecorator } from '../../config/storybook/ThemeDecorator/ThemeDecorator';
 
-import { Text, TextTheme } from './Text';
+import { Text, TextSize, TextTheme } from './Text';
 
 export default {
     title: 'shared/Text',
@@ -52,3 +52,10 @@ OnlyTextLight.args = {
     text: 'asfasf sfa sosfksdfs sdfpskfksmdfoksmd',
 };
 OnlyTextLight.decorators = [ThemeDecorator(Theme.LIGHT)];
+
+export const SizeL = Template.bind({});
+SizeL.args = {
+    title: 'Our special Title',
+    text: 'asfasf sfa sosfksdfs sdfpskfksmdfoksmd',
+    size: TextSize.L,
+};
