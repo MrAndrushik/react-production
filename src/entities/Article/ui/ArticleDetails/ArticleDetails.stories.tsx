@@ -8,7 +8,7 @@ import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDeco
 import { ArticleDetails } from './ArticleDetails';
 
 export default {
-    title: 'entities/ArticleDetails',
+    title: 'entities/Article/ArticleDetails',
     component: ArticleDetails,
 } as ComponentMeta<typeof ArticleDetails>;
 
@@ -17,7 +17,12 @@ const Template: ComponentStory<typeof ArticleDetails> = (args) => (
 );
 
 const article: Article = {
-    id: 1,
+    id: '1',
+    user: {
+        id: '1',
+        avatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRiy-pcZfujBApRKxJaz6D_hZmPX_sKBjQdPBHJzYU&s',
+        username: 'user',
+    },
     title: 'Javascript news',
     subtitle: 'Что нового в JS за 2022 год?',
     img: 'https://teknotower.com/wp-content/uploads/2020/11/js.png',

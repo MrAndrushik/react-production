@@ -1,26 +1,28 @@
 import { ArticleDetails } from 'entities/Article';
 import { CommentList } from 'entities/Comment';
-import {
-    articleDetailsCommentsReducer,
-    getArticleComments,
-} from '../../model/slice/articleDetailsCommentsSlice';
+import { AddCommentForm } from 'features/AddCommentForm';
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
+import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { classNames } from 'shared/lib/classNames/classNames';
 import {
     DynamicModuleLoader,
     ReducersList,
 } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { Text } from 'shared/ui/Text/Text';
-import cls from './ArticleDetailsPage.module.scss';
-import { useSelector } from 'react-redux';
-import { getArticleCommentsIsLoading } from '../../model/selectors/comments';
-import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
-import { AddCommentForm } from 'features/AddCommentForm';
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
+import { AppLink } from 'shared/ui/AppLink/AppLink';
+import { Text } from 'shared/ui/Text/Text';
+import { getArticleCommentsIsLoading } from '../../model/selectors/comments';
 import { addCommentForArticle } from '../../model/services/addCoomentForArticle/addCoomentForArticle';
+import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
+import {
+    articleDetailsCommentsReducer,
+    getArticleComments,
+} from '../../model/slice/articleDetailsCommentsSlice';
+import cls from './ArticleDetailsPage.module.scss';
 
 interface ArticleDetailsPageProps {
     className?: string;
@@ -64,6 +66,7 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
             <div
                 className={classNames(cls.ArticleDetailsPage, {}, [className])}
             >
+                <AppLink to={RoutePath.articles}>{t('Назад к списку')}</AppLink>
                 <ArticleDetails id={id} />
                 <Text className={cls.commentTitle} title={t('Комментарии')} />
                 <AddCommentForm onSendComment={onSendComment} />
