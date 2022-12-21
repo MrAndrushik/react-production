@@ -68,7 +68,7 @@
                 {
                     "id": "8",
                     "type": "IMAGE",
-                    "src": "https://hsto.org/r/w1560/getpro/habr/post_images/d56/a02/ffc/d56a02ffc62949b42904ca00c63d8cc1.png",
+                    "src": "https://image-cdn.hypb.st/https%3A%2F%2Fhypebeast.com%2Fimage%2F2021%2F10%2Fbored-ape-yacht-club-nft-3-4-million-record-sothebys-metaverse-tw.jpg?w=960&cbr=1&q=90&fit=max",
                     "title": "Рисунок 1 - скриншот сайта"
                 },
                 {
@@ -106,7 +106,16 @@
         {
             "id": "1",
             "username": "admin",
-            "password": "123"
+            "password": "123",
+            "role": "ADMIN",
+            "avatar": "https://dgbijzg00pxv8.cloudfront.net/10148489-ca80-4911-b76a-878da46e1eba/000000-0000000002/15377113736242044468441686163017542525599537000685968960702751402001230352437/ITEM_PREVIEW1.jpeg"
+        },
+        {
+            "id": "1",
+            "username": "user",
+            "password": "123",
+            "role": "USER",
+            "avatar": "https://dgbijzg00pxv8.cloudfront.net/10148489-ca80-4911-b76a-878da46e1eba/000000-0000000002/15377113736242044468441686163017542525599537000685968960702751402001230352437/ITEM_PREVIEW1.jpeg"
         }
     ],
     "profile": {
