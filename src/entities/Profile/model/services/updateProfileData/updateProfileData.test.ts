@@ -13,6 +13,7 @@ describe('updateProfileData.test', () => {
         currency: Currency.RUB,
         country: Country.Russia,
         username: 'mrandrushik',
+        id: '1',
     };
 
     test('fulfilled', async () => {

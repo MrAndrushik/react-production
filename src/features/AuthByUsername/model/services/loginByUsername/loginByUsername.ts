@@ -1,6 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ThunkConfig } from 'app/providers/StoreProvider';
 import { User, userActions } from 'entities/User';
+import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { USER_LOCALSTORAGE_KEY } from 'shared/const/localStorage';
 interface LoginByUsernameProps {
     username: string;
@@ -28,7 +29,8 @@ export const loginByUsername = createAsyncThunk<
         );
 
         if (thunkApi.extra?.navigate) {
-            thunkApi.extra.navigate('/profile');
+            // eslint-disable-next-line @typescript-eslint/restrict-plus-operands
+            thunkApi.extra.navigate(RoutePath.profile + response.data.id);
         }
 
         thunkApi.dispatch(userActions.setAuthData(response.data));

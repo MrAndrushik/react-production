@@ -11,6 +11,9 @@
 .btnFlex {
     display: flex;
     gap: 20px;
-    margin-left: auto;
     align-items: center;
+}
+
+.btnWrapper {
+    margin-left: auto;
 }
