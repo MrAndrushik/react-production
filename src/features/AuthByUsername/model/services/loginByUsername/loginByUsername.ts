@@ -28,10 +28,10 @@ export const loginByUsername = createAsyncThunk<
             JSON.stringify(response.data)
         );
 
-        if (thunkApi.extra?.navigate) {
-            // eslint-disable-next-line @typescript-eslint/restrict-plus-operands
-            thunkApi.extra.navigate(RoutePath.profile + response.data.id);
-        }
+        // if (thunkApi.extra?.navigate) {
+        //     // eslint-disable-next-line @typescript-eslint/restrict-plus-operands
+        //     thunkApi.extra.navigate(RoutePath.profile + response.data.id);
+        // }
 
         thunkApi.dispatch(userActions.setAuthData(response.data));
         return response.data;
