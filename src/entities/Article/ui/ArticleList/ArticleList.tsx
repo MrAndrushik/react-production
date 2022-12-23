@@ -1,6 +1,7 @@
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
+import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { Article, ArticleView } from '../../model/types/article';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
@@ -29,6 +30,19 @@ export const ArticleList = memo((props: ArticleListProps) => {
             <ArticleListItem key={article.id} article={article} view={view} />
         );
     };
+
+    if (!isLoading && !articles.length) {
+        return (
+            <div
+                className={classNames(cls.ArticleList, {}, [
+                    className,
+                    cls[view],
+                ])}
+            >
+                <Text theme={TextTheme.ERROR} title={t('Статьи не найдены')} />
+            </div>
+        );
+    }
 
     return (
         <div
