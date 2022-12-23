@@ -12,6 +12,7 @@ import { ProfileSchema } from 'entities/Profile';
 import { UserSchema } from 'entities/User';
 import { AddCommentFormSchema } from 'features/AddCommentForm';
 import { LoginSchema } from 'features/AuthByUsername';
+import { UISchema } from 'features/UI';
 import { ArticlesPageSchema } from 'pages/ArcticlesPage';
 import { ArticleDetailsCommentsSchema } from 'pages/ArticleDetailsPage';
 import { NavigateOptions, To } from 'react-router-dom';
@@ -19,6 +20,7 @@ import { NavigateOptions, To } from 'react-router-dom';
 export interface StateSchema {
     counter: CounterSchema;
     user: UserSchema;
+    ui: UISchema;
     // Async reducers
     loginForm?: LoginSchema;
     profile?: ProfileSchema;
