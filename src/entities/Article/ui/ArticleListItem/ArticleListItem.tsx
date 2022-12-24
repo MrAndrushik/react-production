@@ -1,4 +1,4 @@
-import { memo } from 'react';
+import { HTMLAttributeAnchorTarget, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import EyeIcon from 'shared/assets/icons/eye.svg';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
@@ -22,10 +22,11 @@ interface ArticleListItemProps {
     className?: string;
     article: Article;
     view: ArticleView;
+    target?: HTMLAttributeAnchorTarget;
 }
 
 export const ArticleListItem = memo((props: ArticleListItemProps) => {
-    const { className, article, view } = props;
+    const { className, article, view, target } = props;
     const { t } = useTranslation();
 
     const types = <Text text={article.type.join(', ')} className={cls.types} />;
@@ -50,6 +51,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
                 <AppLink
                     className={cls.cardLink}
                     to={RoutePath.article_details + article.id}
+                    target={target}
                 >
                     <Card className={cls.card}>
                         <div className={cls.header}>
@@ -96,6 +98,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
             <AppLink
                 className={cls.cardLink}
                 to={RoutePath.article_details + article.id}
+                target={target}
             >
                 <Card className={cls.card}>
                     <div className={cls.imgBlock}>

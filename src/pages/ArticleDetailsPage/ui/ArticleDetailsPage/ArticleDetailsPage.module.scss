@@ -6,3 +6,12 @@
     margin-top: 100px;
     margin-bottom: 15px;
 }
+
+.recommendations {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 30px;
+    overflow: auto;
+    justify-content: flex-start;
+    padding-bottom: 30px;
+}

@@ -17,3 +17,14 @@ body {
 .content-page {
     display: flex;
 }
+
+::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+    background: var(--inverted-bg-color);
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background: var(--primary-color);
+}
