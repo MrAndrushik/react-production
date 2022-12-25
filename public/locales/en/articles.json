@@ -1,4 +1,22 @@
 {
   "ArticleDetailsPage": "ArticleDetailsPage",
-  "ArticlePage": "ArticlePage"
+  "ArticlePage": "ArticlePage",
+  "просмотрам": "views",
+  "убыванию": "descending",
+  "ALL": "ALL",
+  "ECONOMICS": "ECONOMICS",
+  "IT": "IT",
+  "SCIENCE": "SCIENCE",
+  "Введите текст комментария": "Enter comment text",
+  "Назад к списку": "Back to list",
+  "Поиск": "Search",
+  "Произошла ошибка при загрузке файла": "An error occurred while uploading the file",
+  "Рекомендуем": "Recommended",
+  "Статья не найдена": "Article not found",
+  "Сортировать по": "Sort by",
+  "Читать далее": "Read more",
+  "возрастанию": "ascending",
+  "дате создания": "creation date",
+  "заголовку": "title",
+  "по": "on"
 }

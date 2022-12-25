@@ -11,6 +11,8 @@ import { useSelector } from 'react-redux';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Button } from 'shared/ui/Button/Button';
 import cls from './Navbar.module.scss';
+import { AppLink } from 'shared/ui/AppLink/AppLink';
+import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 
 interface NavbarProps {
     className?: string;
@@ -40,6 +42,9 @@ export const Navbar = memo(({ className }: NavbarProps) => {
             <header className={classNames(cls.Navbar, {}, [className])}>
                 {theme === Theme.DARK ? <LogoLight /> : <LogoDark />}
                 <div className={cls.linkWrapper}>
+                    <AppLink to={RoutePath.article_create}>
+                        {t('Создать статью')}
+                    </AppLink>
                     <Button onClick={onLogout}>{t('Выйти')}</Button>
                 </div>
             </header>
