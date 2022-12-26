@@ -3,7 +3,7 @@ import {
     Article,
     ArticleBlockType,
     ArticleType,
-} from 'entities/Article/model/types/article';
+} from '../../model/types/article';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
 import { ArticleDetails } from './ArticleDetails';
 
