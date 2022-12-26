@@ -13,6 +13,6 @@ describe('button', () => {
         const btn = screen.getByTestId('sidebar-toggle');
         expect(screen.getByTestId('sidebar-toggle')).toBeInTheDocument();
         fireEvent.click(btn);
-        expect(screen.getByTestId('sidebar')).toHaveClass('collapsed');
+        expect(screen.getByTestId('sidebar')).not.toHaveClass('collapsed');
     });
 });
