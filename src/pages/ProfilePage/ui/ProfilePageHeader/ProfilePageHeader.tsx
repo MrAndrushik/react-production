@@ -11,6 +11,7 @@ import { useSelector } from 'react-redux';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Button, ThemeButton } from 'shared/ui/Button/Button';
+import { HStack } from 'shared/ui/Stack';
 import { Text } from 'shared/ui/Text/Text';
 import cls from './ProfilePageHeader.module.scss';
 
@@ -52,7 +53,7 @@ export const ProfilePageHeader = ({ className }: ProfilePageHeaderProps) => {
                             {t('Редактировать')}
                         </Button>
                     ) : (
-                        <div className={cls.btnFlex}>
+                        <HStack gap='16'>
                             <Button
                                 className={classNames(cls.editBtn)}
                                 theme={ThemeButton.OUTLINE}
@@ -67,7 +68,7 @@ export const ProfilePageHeader = ({ className }: ProfilePageHeaderProps) => {
                             >
                                 {t('Сохранить')}
                             </Button>
-                        </div>
+                        </HStack>
                     )}
                 </div>
             )}
