@@ -1,0 +1,36 @@
+.ListBox {
+    position: relative;
+    width: fit-content;
+}
+
+.options {
+    background: var(--card-bg);
+    position: absolute;
+    z-index: 10;
+    box-shadow: 2px 2px 8px var(--card-bg);
+    overflow: hidden;
+    min-width: 100%;
+}
+
+.optionsTop {
+    bottom: 100%;
+}
+
+.item {
+    cursor: pointer;
+    padding: 5px 10px;
+}
+
+.selected {
+    background: var(--primary-color);
+    color: var(--bg-color);
+}
+
+.active {
+    background: var(--primary-color);
+    color: var(--bg-color);
+}
+
+.disabled {
+    opacity: 0.4;
+}
