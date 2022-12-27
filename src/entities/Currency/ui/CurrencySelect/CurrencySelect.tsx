@@ -31,7 +31,7 @@ export const CurrencySelect = memo(
 
         return (
             <ListBox
-                direction='top'
+                direction='top right'
                 readonly={readonly}
                 onChange={onChangeHandler}
                 value={value}

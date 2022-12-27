@@ -12,10 +12,6 @@
     min-width: 100%;
 }
 
-.optionsTop {
-    bottom: 100%;
-}
-
 .item {
     cursor: pointer;
     padding: 5px 10px;
@@ -33,4 +29,24 @@
 
 .disabled {
     opacity: 0.4;
+}
+
+.optionsTopRight {
+    bottom: 100%;
+    left: 0;
+}
+
+.optionsTopLeft {
+    bottom: 100%;
+    right: 0;
+}
+
+.optionsBottomRight {
+    top: 100%;
+    left: 0;
+}
+
+.optionsBottomLeft {
+    top: 100%;
+    right: 0;
 }

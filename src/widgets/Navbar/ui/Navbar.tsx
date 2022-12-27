@@ -13,6 +13,8 @@ import { Button } from 'shared/ui/Button/Button';
 import cls from './Navbar.module.scss';
 import { AppLink } from 'shared/ui/AppLink/AppLink';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+import { Dropdown } from 'shared/ui/Dropdown/Dropdown';
+import { Avatar } from 'shared/ui/Avatar/Avatar';
 
 interface NavbarProps {
     className?: string;
@@ -45,7 +47,17 @@ export const Navbar = memo(({ className }: NavbarProps) => {
                     <AppLink to={RoutePath.article_create}>
                         {t('Создать статью')}
                     </AppLink>
-                    <Button onClick={onLogout}>{t('Выйти')}</Button>
+                    <Dropdown
+                        items={[
+                            {
+                                content: t('Профиль'),
+                                href: RoutePath.profile + authData.id,
+                            },
+                            { content: t('Выйти'), onClick: onLogout },
+                        ]}
+                        direction='bottom left'
+                        trigger={<Avatar size={30} src={authData.avatar} />}
+                    />
                 </div>
             </header>
         );
