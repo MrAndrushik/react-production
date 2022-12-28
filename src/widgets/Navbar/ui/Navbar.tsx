@@ -1,10 +1,16 @@
+/* eslint-disable indent */
 import { memo, useCallback, useState } from 'react';
 import LogoDark from 'shared/assets/icons/logo-dark.svg';
 import LogoLight from 'shared/assets/icons/logo-light.svg';
 import { classNames } from 'shared/lib/classNames/classNames';
 
 import { Theme, useTheme } from 'app/providers/ThemeProvider';
-import { getUserAuthData, userActions } from 'entities/User';
+import {
+    getUserAuthData,
+    isUserAdmin,
+    isUserManager,
+    userActions,
+} from 'entities/User';
 import { LoginModal } from 'features/AuthByUsername';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
@@ -26,6 +32,8 @@ export const Navbar = memo(({ className }: NavbarProps) => {
     const authData = useSelector(getUserAuthData);
     const dispatch = useAppDispatch();
     const { t } = useTranslation();
+    const isAdmin = useSelector(isUserAdmin);
+    const isManager = useSelector(isUserManager);
 
     const onCloseModal = useCallback(() => {
         setIsAuthModal(false);
@@ -39,6 +47,8 @@ export const Navbar = memo(({ className }: NavbarProps) => {
         dispatch(userActions.logout());
     }, [dispatch]);
 
+    const isAdminPanelAvailable = isAdmin || isManager;
+
     if (authData) {
         return (
             <header className={classNames(cls.Navbar, {}, [className])}>
@@ -49,6 +59,14 @@ export const Navbar = memo(({ className }: NavbarProps) => {
                     </AppLink>
                     <Dropdown
                         items={[
+                            ...(isAdminPanelAvailable
+                                ? [
+                                      {
+                                          content: t('Админка'),
+                                          href: RoutePath.admin_panel,
+                                      },
+                                  ]
+                                : []),
                             {
                                 content: t('Профиль'),
                                 href: RoutePath.profile + authData.id,
