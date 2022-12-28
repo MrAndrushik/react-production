@@ -1,5 +1,4 @@
 import { memo } from 'react';
-import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './Text.module.scss';
 
@@ -29,6 +28,8 @@ interface TextProps {
     theme?: TextTheme;
     align?: TextAlign;
     size?: TextSize;
+
+    'data-testid'?: string;
 }
 
 export const Text = memo(
@@ -40,9 +41,8 @@ export const Text = memo(
         theme = TextTheme.PRIMARY,
         align = TextAlign.LEFT,
         size = TextSize.M,
+        'data-testid': dataTestId = '',
     }: TextProps) => {
-        const { t } = useTranslation();
-
         return (
             <div
                 className={classNames(cls.Text, {}, [
@@ -53,26 +53,70 @@ export const Text = memo(
                 ])}
             >
                 {title && titleType === 'h1' && (
-                    <h1 className={classNames(cls.title)}>{title}</h1>
+                    <h1
+                        data-testid={`${dataTestId}.Header`}
+                        className={classNames(cls.title)}
+                    >
+                        {title}
+                    </h1>
                 )}
                 {title && titleType === 'h2' && (
-                    <h2 className={classNames(cls.title)}>{title}</h2>
+                    <h2
+                        data-testid={`${dataTestId}.Header`}
+                        className={classNames(cls.title)}
+                    >
+                        {title}
+                    </h2>
                 )}
                 {title && titleType === 'h3' && (
-                    <h3 className={classNames(cls.title)}>{title}</h3>
+                    <h3
+                        data-testid={`${dataTestId}.Header`}
+                        className={classNames(cls.title)}
+                    >
+                        {title}
+                    </h3>
                 )}
                 {title && titleType === 'h4' && (
-                    <h4 className={classNames(cls.title)}>{title}</h4>
+                    <h4
+                        data-testid={`${dataTestId}.Header`}
+                        className={classNames(cls.title)}
+                    >
+                        {title}
+                    </h4>
                 )}
                 {title && titleType === 'h5' && (
-                    <h5 className={classNames(cls.title)}>{title}</h5>
+                    <h5
+                        data-testid={`${dataTestId}.Header`}
+                        className={classNames(cls.title)}
+                    >
+                        {title}
+                    </h5>
                 )}
                 {title && titleType === 'h6' && (
-                    <h6 className={classNames(cls.title)}>{title}</h6>
+                    <h6
+                        data-testid={`${dataTestId}.Header`}
+                        className={classNames(cls.title)}
+                    >
+                        {title}
+                    </h6>
                 )}
-                {title && <h3 className={classNames(cls.title)}>{title}</h3>}
+                {title && (
+                    <h3
+                        data-testid={`${dataTestId}.Header`}
+                        className={classNames(cls.title)}
+                    >
+                        {title}
+                    </h3>
+                )}
 
-                {text && <p className={classNames(cls.text)}>{text}</p>}
+                {text && (
+                    <p
+                        data-testid={`${dataTestId}.Paragraph`}
+                        className={classNames(cls.text)}
+                    >
+                        {text}
+                    </p>
+                )}
             </div>
         );
     }

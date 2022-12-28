@@ -1,8 +1,4 @@
 import { getUserAuthData } from 'entities/User';
-import { getProfileData } from '../../model/selectors/getProfileData/getProfileData';
-import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/getProfileReadonly';
-import { updateProfileData } from '../../model/services/updateProfileData/updateProfileData';
-import { profileActions } from '../../model/slice/profileSlice';
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
@@ -10,8 +6,12 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Button, ThemeButton } from 'shared/ui/Button/Button';
 import { HStack } from 'shared/ui/Stack';
-import cls from './EditableProfileCardHeader.module.scss';
 import { Text } from 'shared/ui/Text/Text';
+import { getProfileData } from '../../model/selectors/getProfileData/getProfileData';
+import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/getProfileReadonly';
+import { updateProfileData } from '../../model/services/updateProfileData/updateProfileData';
+import { profileActions } from '../../model/slice/profileSlice';
+import cls from './EditableProfileCardHeader.module.scss';
 
 interface EditableProfileCardHeaderProps {
     className?: string;
@@ -49,6 +49,9 @@ export const EditableProfileCardHeader = memo(
                                 className={classNames(cls.editBtn)}
                                 theme={ThemeButton.OUTLINE}
                                 onClick={onEdit}
+                                data-testid={
+                                    'EditableProfileCardHeader.EditBtn'
+                                }
                             >
                                 {t('Редактировать')}
                             </Button>
@@ -58,6 +61,9 @@ export const EditableProfileCardHeader = memo(
                                     className={classNames(cls.editBtn)}
                                     theme={ThemeButton.OUTLINE}
                                     onClick={onCancelEdit}
+                                    data-testid={
+                                        'EditableProfileCardHeader.CancelBtn'
+                                    }
                                 >
                                     {t('Отменить')}
                                 </Button>
@@ -65,6 +71,9 @@ export const EditableProfileCardHeader = memo(
                                     className={classNames(cls.editBtn)}
                                     theme={ThemeButton.OUTLINE_RED}
                                     onClick={onSave}
+                                    data-testid={
+                                        'EditableProfileCardHeader.SaveBtn'
+                                    }
                                 >
                                     {t('Сохранить')}
                                 </Button>

@@ -26,7 +26,7 @@ export const ArticleRecommendationsList = memo(
             return <Loader />;
         }
 
-        if (error) {
+        if (error ?? !articles) {
             return <div>{t('Ошибка загрузки рекоммендаций')}</div>;
         }
 
