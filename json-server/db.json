@@ -802,6 +802,12 @@
       "userId": "1",
       "text": "Привет",
       "id": "oxNNgHD"
+    },
+    {
+      "articleId": "5",
+      "userId": "1",
+      "text": "123",
+      "id": "KWumJE7"
     }
   ],
   "users": [
@@ -823,10 +829,10 @@
   "profile": [
     {
       "id": "1",
-      "first": "Андрей",
+      "first": "Андрей1",
       "lastname": "Петров",
       "age": 21,
-      "currency": "RUB",
+      "currency": "EUR",
       "country": "Russia",
       "city": "Moscow",
       "username": "mrandrushik",

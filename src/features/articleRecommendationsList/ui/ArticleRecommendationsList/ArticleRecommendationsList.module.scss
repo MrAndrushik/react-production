@@ -1,0 +1,12 @@
+.ArticleRecommendationsList {
+    margin-top: 50px;
+}
+
+.recommendations {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 30px;
+    overflow: auto;
+    justify-content: flex-start;
+    padding-bottom: 30px;
+}
