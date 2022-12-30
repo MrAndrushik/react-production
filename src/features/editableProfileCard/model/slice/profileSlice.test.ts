@@ -3,9 +3,9 @@ import { Currency } from 'entities/Currency';
 import { ValidateProfileError } from '../consts/consts';
 import { updateProfileData } from '../services/updateProfileData/updateProfileData';
 import { ProfileSchema } from '../types/editableProfileCardSchema';
-import { profileActions, profileReducer } from './';
+import { profileActions, profileReducer } from './profileSlice';
 
-describe('.test', () => {
+describe('profileSlice.test', () => {
     const data = {
         first: 'Андрей',
         lastname: 'Петров',
