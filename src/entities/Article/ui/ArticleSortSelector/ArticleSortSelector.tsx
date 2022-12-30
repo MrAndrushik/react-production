@@ -1,4 +1,4 @@
-import { ArticleSortField } from '../../model/types/article';
+import { ArticleSortField } from '../../model/consts/articleConsts';
 import { memo, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
