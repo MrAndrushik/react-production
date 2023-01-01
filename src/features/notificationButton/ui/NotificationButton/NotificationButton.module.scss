@@ -1,0 +1,13 @@
+.notification {
+    display: flex;
+    align-items: center;
+}
+
+.notificationList {
+    min-height: 150px;
+    max-height: 400px;
+    max-width: 100%;
+    min-width: 300px;
+    overflow-y: auto;
+    padding-right: 20px;
+}

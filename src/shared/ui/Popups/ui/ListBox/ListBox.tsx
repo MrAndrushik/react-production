@@ -3,15 +3,10 @@ import { Fragment, ReactNode } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { DropDownDirection } from 'shared/types/ui';
 import { Button } from 'shared/ui/Button/Button';
-import { HStack } from '../Stack';
+import { HStack } from '../../../Stack';
+import { mapDirectionClass } from '../../styles/const';
 import cls from './ListBox.module.scss';
-
-const mapDirectionClass: Record<DropDownDirection, string> = {
-    'top right': cls.optionsTopRight,
-    'top left': cls.optionsTopLeft,
-    'bottom right': cls.optionsBottomRight,
-    'bottom left': cls.optionsBottomLeft,
-};
+import popupCls from '../../styles/popup.module.scss';
 
 export interface ListBoxItem {
     value: string;
@@ -48,7 +43,10 @@ export function ListBox(props: ListBoxProps) {
             <HListBox
                 as={'div'}
                 disabled={readonly}
-                className={classNames(cls.ListBox, {}, [className])}
+                className={classNames(cls.ListBox, {}, [
+                    className,
+                    popupCls.popup,
+                ])}
                 value={value}
                 onChange={onChange}
             >
