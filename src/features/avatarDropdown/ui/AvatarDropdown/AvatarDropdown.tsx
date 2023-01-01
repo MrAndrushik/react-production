@@ -37,27 +37,25 @@ export const AvatarDropdown = memo((props: AvatarDropdownProps) => {
     }
 
     return (
-        <div className={classNames(cls.AvatarDropdown, {}, [className])}>
-            <Dropdown
-                className={classNames(cls.AvatarDropdown, {}, [className])}
-                items={[
-                    ...(isAdminPanelAvailable
-                        ? [
-                              {
-                                  content: t('Админка'),
-                                  href: RoutePath.admin_panel,
-                              },
-                          ]
-                        : []),
-                    {
-                        content: t('Профиль'),
-                        href: RoutePath.profile + authData.id,
-                    },
-                    { content: t('Выйти'), onClick: onLogout },
-                ]}
-                direction='bottom left'
-                trigger={<Avatar size={30} src={authData?.avatar} />}
-            />
-        </div>
+        <Dropdown
+            className={classNames('', {}, [className])}
+            items={[
+                ...(isAdminPanelAvailable
+                    ? [
+                          {
+                              content: t('Админка'),
+                              href: RoutePath.admin_panel,
+                          },
+                      ]
+                    : []),
+                {
+                    content: t('Профиль'),
+                    href: RoutePath.profile + authData.id,
+                },
+                { content: t('Выйти'), onClick: onLogout },
+            ]}
+            direction='bottom left'
+            trigger={<Avatar size={30} src={authData?.avatar} />}
+        />
     );
 });
