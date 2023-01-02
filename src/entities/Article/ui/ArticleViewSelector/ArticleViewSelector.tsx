@@ -1,12 +1,12 @@
 import { ArticleView } from '../../model/consts/articleConsts';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './ArticleViewSelector.module.scss';
-import BigIcon from 'shared/assets/icons/big.svg';
-import SmallIcon from 'shared/assets/icons/small.svg';
-import { Button, ThemeButton } from 'shared/ui/Button/Button';
-import { Icon } from 'shared/ui/Icon/Icon';
+import BigIcon from '@/shared/assets/icons/big.svg';
+import SmallIcon from '@/shared/assets/icons/small.svg';
+import { Button, ThemeButton } from '@/shared/ui/Button/Button';
+import { Icon } from '@/shared/ui/Icon/Icon';
 
 interface ArticleViewSelectorProps {
     className?: string;

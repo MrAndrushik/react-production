@@ -1,11 +1,11 @@
-import { ArticleList, ArticleView } from 'entities/Article';
+import { ArticleList, ArticleView } from '@/entities/Article';
 import { useArticleRecommendationsList } from '../../api/articleRecommendationsApi';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { Loader } from 'shared/ui/Loader/Loader';
-import { VStack } from 'shared/ui/Stack';
-import { Text } from 'shared/ui/Text/Text';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { Loader } from '@/shared/ui/Loader/Loader';
+import { VStack } from '@/shared/ui/Stack';
+import { Text } from '@/shared/ui/Text/Text';
 import cls from './ArticleRecommendationsList.module.scss';
 
 interface ArticleRecommendationsListProps {
