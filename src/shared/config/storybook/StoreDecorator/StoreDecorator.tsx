@@ -1,3 +1,4 @@
+/* eslint-disable mrandrushik-eslint-path-checker/public-api-imports */
 import { Story } from '@storybook/react';
 import { StateSchema, StoreProvider } from '@/app/providers/StoreProvider';
 import { articleDetailsReducer } from '@/entities/Article/model/slice/articleDetailsSlice';
@@ -15,16 +16,10 @@ const defaultAsyncReducers: ReducersList = {
     articleDetailsPage: articleDetailsPageReducer,
 };
 
-export const StoreDecorator = (
-    state: DeepPartial<StateSchema>,
-    asyncReducers?: ReducersList
-) =>
+export const StoreDecorator = (state: DeepPartial<StateSchema>, asyncReducers?: ReducersList) =>
     function StoreDecorator(StoryComponent: Story) {
         return (
-            <StoreProvider
-                initialState={state}
-                asyncReducers={{ ...defaultAsyncReducers, ...asyncReducers }}
-            >
+            <StoreProvider initialState={state} asyncReducers={{ ...defaultAsyncReducers, ...asyncReducers }}>
                 <StoryComponent />
             </StoreProvider>
         );

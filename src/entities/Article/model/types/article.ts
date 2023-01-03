@@ -1,11 +1,5 @@
 import { User } from '@/entities/User';
-import { ArticleType } from '../consts/articleConsts';
-
-export enum ArticleBlockType {
-    CODE = 'CODE',
-    IMAGE = 'IMAGE',
-    TEXT = 'TEXT',
-}
+import { ArticleType, ArticleBlockType } from '../consts/articleConsts';
 
 export interface ActicleBlockBase {
     id: string;
@@ -29,10 +23,7 @@ export interface ArticleTextBlock extends ActicleBlockBase {
     paragraphs: string[];
 }
 
-export type ArticleBlock =
-    | ArticleCodeBlock
-    | ArticleImageBlock
-    | ArticleTextBlock;
+export type ArticleBlock = ArticleCodeBlock | ArticleImageBlock | ArticleTextBlock;
 
 export interface Article {
     user: User;

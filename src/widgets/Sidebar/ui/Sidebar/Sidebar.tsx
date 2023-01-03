@@ -2,8 +2,8 @@ import { memo, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Button, ThemeButton } from '@/shared/ui/Button/Button';
-import { LangSwitcher } from '@/shared/ui/LangSwitcher/LangSwitcher';
-import { ThemeSwitcher } from '@/widgets/ThemeSwitcher/ThemeSwitcher';
+import { LangSwitcher } from '@/widgets/LangSwitcher';
+import { ThemeSwitcher } from '@/widgets/ThemeSwitcher';
 import cls from './Sidebar.module.scss';
 
 import SidebarIcon from '@/shared/assets/icons/sidebar-icon.svg';
@@ -36,18 +36,9 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
     );
 
     return (
-        <aside
-            data-testid='sidebar'
-            className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [
-                className,
-            ])}
-        >
+        <aside data-testid='sidebar' className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className])}>
             <Button
-                className={classNames(
-                    cls.sideButton,
-                    { [cls.sideButtonActive]: collapsed },
-                    []
-                )}
+                className={classNames(cls.sideButton, { [cls.sideButtonActive]: collapsed }, [])}
                 theme={ThemeButton.CIRCLE}
                 data-testid='sidebar-toggle'
                 onClick={onToggle}

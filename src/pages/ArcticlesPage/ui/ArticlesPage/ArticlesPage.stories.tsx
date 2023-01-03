@@ -1,5 +1,5 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { ArticleBlockType } from '@/entities/Article/model/types/article';
+import { ArticleBlockType } from '@/entities/Article';
 import { UserRole } from '@/entities/User';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 import ArticlesPage from './ArticlesPage';
@@ -47,9 +47,7 @@ export default {
     ],
 } as ComponentMeta<typeof ArticlesPage>;
 
-const Template: ComponentStory<typeof ArticlesPage> = (args) => (
-    <ArticlesPage {...args} />
-);
+const Template: ComponentStory<typeof ArticlesPage> = (args) => <ArticlesPage {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {};
