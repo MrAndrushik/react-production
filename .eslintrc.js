@@ -17,12 +17,7 @@ module.exports = {
         sourceType: 'module',
         project: ['./tsconfig.json'],
     },
-    plugins: [
-        'react',
-        'i18next',
-        'react-hooks',
-        'mrandrushik-eslint-path-checker',
-    ],
+    plugins: ['react', 'i18next', 'react-hooks', 'mrandrushik-eslint-path-checker'],
     rules: {
         semi: ['error', 'always'],
         quotes: ['error', 'single'],
@@ -47,6 +42,6 @@ module.exports = {
         '@typescript-eslint/no-invalid-void-type': 'off',
         '@typescript-eslint/no-non-null-assertion': 'off',
         '@typescript-eslint/array-type': 'off',
-        'mrandrushik-eslint-path-checker/path-checker': 'error',
+        'mrandrushik-eslint-path-checker/path-checker': ['error', { alias: '@' }],
     },
 };

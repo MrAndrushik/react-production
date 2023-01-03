@@ -19,48 +19,26 @@ interface ArticleListProps {
 const getSkeletons = (view: ArticleView) =>
     new Array(view === ArticleView.SMALL ? 9 : 3)
         .fill(0)
-        .map((item, index) => (
-            <ArticleListItemSkeleton view={view} key={index} />
-        ));
+        .map((item, index) => <ArticleListItemSkeleton view={view} key={index} />);
 
 export const ArticleList = memo((props: ArticleListProps) => {
-    const {
-        className,
-        articles,
-        view = ArticleView.BIG,
-        isLoading,
-        target,
-    } = props;
+    const { className, articles, view = ArticleView.BIG, isLoading, target } = props;
     const { t } = useTranslation();
 
     const renderArticle = (article: Article) => {
-        return (
-            <ArticleListItem
-                target={target}
-                key={article.id}
-                article={article}
-                view={view}
-            />
-        );
+        return <ArticleListItem target={target} key={article.id} article={article} view={view} />;
     };
 
     if (!isLoading && !articles.length) {
         return (
-            <div
-                className={classNames(cls.ArticleList, {}, [
-                    className,
-                    cls[view],
-                ])}
-            >
+            <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
                 <Text theme={TextTheme.ERROR} title={t('Статьи не найдены')} />
             </div>
         );
     }
 
     return (
-        <div
-            className={classNames(cls.ArticleList, {}, [className, cls[view]])}
-        >
+        <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
             {articles.length ? articles.map(renderArticle) : null}
             {isLoading && getSkeletons(view)}
         </div>
