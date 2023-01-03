@@ -2,7 +2,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { RaitingCard } from './RaitingCard';
 
 export default {
-    title: 'shared/RaitingCard',
+    title: 'entities/RaitingCard',
     component: RaitingCard,
 } as ComponentMeta<typeof RaitingCard>;
 

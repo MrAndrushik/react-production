@@ -9,4 +9,6 @@ export default {
 const Template: ComponentStory<typeof StarRating> = (args) => <StarRating {...args} />;
 
 export const Default = Template.bind({});
-Default.args = {};
+Default.args = {
+    size: 30,
+};
