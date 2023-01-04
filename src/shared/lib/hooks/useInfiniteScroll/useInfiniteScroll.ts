@@ -1,4 +1,3 @@
-import { useRef } from '@storybook/addons';
 import { MutableRefObject, useEffect } from 'react';
 
 export interface UseInfiniteScrollOptions {

@@ -17,7 +17,7 @@ module.exports = {
         sourceType: 'module',
         project: ['./tsconfig.json'],
     },
-    plugins: ['react', 'i18next', 'react-hooks', 'mrandrushik-eslint-path-checker'],
+    plugins: ['react', 'i18next', 'react-hooks', 'mrandrushik-eslint-path-checker', 'unused-imports'],
     rules: {
         semi: ['error', 'always'],
         quotes: ['error', 'single'],
@@ -51,5 +51,6 @@ module.exports = {
             'error',
             { alias: '@', ignoreImportPatterns: ['**/StoreProvider', '**/testing'] },
         ],
+        'unused-imports/no-unused-imports': 'error',
     },
 };

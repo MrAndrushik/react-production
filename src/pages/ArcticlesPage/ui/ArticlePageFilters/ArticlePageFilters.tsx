@@ -6,7 +6,7 @@ import {
     ArticleView,
     ArticleViewSelector,
 } from '@/entities/Article';
-import { memo, useCallback, useMemo } from 'react';
+import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { classNames } from '@/shared/lib/classNames/classNames';
@@ -15,7 +15,6 @@ import { useDebounce } from '@/shared/lib/hooks/useDebounce/useDebounce';
 import { SortOrder } from '@/shared/types';
 import { Card } from '@/shared/ui/Card';
 import { Input } from '@/shared/ui/Input';
-import { TabItem, Tabs } from '@/shared/ui/Tabs';
 import {
     getArticlesPageOrder,
     getArticlesPageSearch,
