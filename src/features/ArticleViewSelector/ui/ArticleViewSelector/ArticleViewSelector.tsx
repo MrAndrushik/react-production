@@ -1,12 +1,11 @@
-import { ArticleView } from '../../model/consts/articleConsts';
-import { memo } from 'react';
-import { useTranslation } from 'react-i18next';
-import { classNames } from '@/shared/lib/classNames/classNames';
-import cls from './ArticleViewSelector.module.scss';
+import { ArticleView } from '@/entities/Article';
 import BigIcon from '@/shared/assets/icons/big.svg';
 import SmallIcon from '@/shared/assets/icons/small.svg';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import { Button, ThemeButton } from '@/shared/ui/Button';
 import { Icon } from '@/shared/ui/Icon';
+import { memo } from 'react';
+import cls from './ArticleViewSelector.module.scss';
 
 interface ArticleViewSelectorProps {
     className?: string;
@@ -27,7 +26,6 @@ const viewTypes = [
 
 export const ArticleViewSelector = memo((props: ArticleViewSelectorProps) => {
     const { className, view, onViewClick } = props;
-    const { t } = useTranslation();
 
     const onClick = (newView: ArticleView) => {
         return () => {
@@ -36,19 +34,11 @@ export const ArticleViewSelector = memo((props: ArticleViewSelectorProps) => {
     };
 
     return (
-        <div className={classNames(cls.ArticleViewSelector, {}, [className])}>
+        <div className={classNames('', {}, [className])}>
             {viewTypes.map((viewType) => (
-                <Button
-                    key={viewType.view}
-                    theme={ThemeButton.CLEAR}
-                    onClick={onClick(viewType.view)}
-                >
+                <Button key={viewType.view} theme={ThemeButton.CLEAR} onClick={onClick(viewType.view)}>
                     <Icon
-                        className={classNames(
-                            '',
-                            { [cls.selected]: viewType.view === view },
-                            []
-                        )}
+                        className={classNames('', { [cls.selected]: viewType.view === view }, [])}
                         Svg={viewType.icon}
                     />
                 </Button>

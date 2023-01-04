@@ -1,11 +1,11 @@
 import { getArticleDetailsData } from '@/entities/Article';
-import { getCanEditArticle } from '../../model/selectors/article';
+import { getRouteArticleEdit, getRouteArticles } from '@/shared/const/router';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { AppLink } from '@/shared/ui/AppLink';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { RoutePath } from '@/shared/const/router';
-import { classNames } from '@/shared/lib/classNames/classNames';
-import { AppLink } from '@/shared/ui/AppLink';
+import { getCanEditArticle } from '../../model/selectors/article';
 import cls from './ArticleDetailsPageHeader.module.scss';
 
 interface ArticleDetailsPageHeaderProps {
@@ -20,9 +20,9 @@ export const ArticleDetailsPageHeader = memo((props: ArticleDetailsPageHeaderPro
 
     return (
         <div className={classNames(cls.ArticleDetailsPageHeader, {}, [className])}>
-            <AppLink to={RoutePath.articles}>{t('Назад к списку')}</AppLink>
+            <AppLink to={getRouteArticles()}>{t('Назад к списку')}</AppLink>
             {canEdit && (
-                <AppLink to={`${RoutePath.article_details}${article!.id}/edit`} className={cls.editBtn}>
+                <AppLink to={getRouteArticleEdit(article!.id)} className={cls.editBtn}>
                     {t('Редактировать')}
                 </AppLink>
             )}

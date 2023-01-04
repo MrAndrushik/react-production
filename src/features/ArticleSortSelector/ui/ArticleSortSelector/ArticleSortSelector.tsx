@@ -1,10 +1,10 @@
-import { ArticleSortField } from '../../model/consts/articleConsts';
 import { memo, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Select, SelectOptions } from '@/shared/ui/Select';
 import cls from './ArticleSortSelector.module.scss';
 import { SortOrder } from '@/shared/types';
+import { ArticleSortField } from '@/entities/Article';
 
 interface ArticleSortSelectorProps {
     className?: string;
@@ -52,18 +52,8 @@ export const ArticleSortSelector = memo((props: ArticleSortSelectorProps) => {
 
     return (
         <div className={classNames(cls.ArticleSortSelector, {}, [className])}>
-            <Select
-                value={sort}
-                onChange={onChangeSort}
-                options={sortFieldOptions}
-                label={t('Сортировать по')}
-            />
-            <Select
-                value={order}
-                onChange={onChangeOrder}
-                options={orderOptions}
-                label={t('по')}
-            />
+            <Select value={sort} onChange={onChangeSort} options={sortFieldOptions} label={t('Сортировать по')} />
+            <Select value={order} onChange={onChangeOrder} options={orderOptions} label={t('по')} />
         </div>
     );
 });

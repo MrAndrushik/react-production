@@ -1,13 +1,13 @@
 /* eslint-disable indent */
 import { getUserAuthData, isUserAdmin, isUserManager, userActions } from '@/entities/User';
-import { memo, useCallback } from 'react';
-import { useTranslation } from 'react-i18next';
-import { useSelector } from 'react-redux';
-import { RoutePath } from '@/shared/const/router';
+import { getRouteAdminPanel, getRouteProfile } from '@/shared/const/router';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Avatar } from '@/shared/ui/Avatar';
 import { Dropdown } from '@/shared/ui/Popups';
+import { memo, useCallback } from 'react';
+import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
 
 interface AvatarDropdownProps {
     className?: string;
@@ -38,13 +38,13 @@ export const AvatarDropdown = memo((props: AvatarDropdownProps) => {
                     ? [
                           {
                               content: t('Админка'),
-                              href: RoutePath.admin_panel,
+                              href: getRouteAdminPanel(),
                           },
                       ]
                     : []),
                 {
                     content: t('Профиль'),
-                    href: RoutePath.profile + authData.id,
+                    href: getRouteProfile(authData.id),
                 },
                 { content: t('Выйти'), onClick: onLogout },
             ]}

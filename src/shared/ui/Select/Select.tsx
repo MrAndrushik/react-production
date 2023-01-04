@@ -1,6 +1,5 @@
-import { ChangeEvent, useMemo } from 'react';
-import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
+import { ChangeEvent, useMemo } from 'react';
 import cls from './Select.module.scss';
 
 export interface SelectOptions<T extends string> {
@@ -19,7 +18,6 @@ interface SelectProps<T extends string> {
 
 export const Select = <T extends string>(props: SelectProps<T>) => {
     const { className, label, options, value, onChange, readonly } = props;
-    const { t } = useTranslation();
 
     const optionList = useMemo(() => {
         return options?.map((opt) => (
@@ -38,12 +36,7 @@ export const Select = <T extends string>(props: SelectProps<T>) => {
     return (
         <div className={classNames(cls.wrapper, {}, [className])}>
             {label && <span className={cls.label}>{label}</span>}
-            <select
-                disabled={readonly}
-                value={value}
-                onChange={onChangeHandler}
-                className={cls.select}
-            >
+            <select disabled={readonly} value={value} onChange={onChangeHandler} className={cls.select}>
                 {optionList}
             </select>
         </div>

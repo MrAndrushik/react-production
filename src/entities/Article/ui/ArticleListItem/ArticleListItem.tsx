@@ -1,7 +1,5 @@
-import { HTMLAttributeAnchorTarget, memo } from 'react';
-import { useTranslation } from 'react-i18next';
 import EyeIcon from '@/shared/assets/icons/eye.svg';
-import { RoutePath } from '@/shared/const/router';
+import { getRouteArticleDetails } from '@/shared/const/router';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { AppLink } from '@/shared/ui/AppLink';
 import { Avatar } from '@/shared/ui/Avatar';
@@ -9,8 +7,10 @@ import { Button } from '@/shared/ui/Button';
 import { Card } from '@/shared/ui/Card';
 import { Icon } from '@/shared/ui/Icon';
 import { Text } from '@/shared/ui/Text';
-import { Article, ArticleTextBlock } from '../../model/types/article';
+import { HTMLAttributeAnchorTarget, memo } from 'react';
+import { useTranslation } from 'react-i18next';
 import { ArticleBlockType, ArticleView } from '../../model/consts/articleConsts';
+import { Article, ArticleTextBlock } from '../../model/types/article';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 import cls from './ArticleListItem.module.scss';
 
@@ -37,7 +37,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
         const textBlock = article.blocks.find((block) => block.type === ArticleBlockType.TEXT) as ArticleTextBlock;
         return (
             <div className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}>
-                <AppLink className={cls.cardLink} to={RoutePath.article_details + article.id} target={target}>
+                <AppLink className={cls.cardLink} to={getRouteArticleDetails(article.id)} target={target}>
                     <Card className={cls.card}>
                         <div className={cls.header}>
                             <Avatar size={30} src={article.user.avatar} />
@@ -60,7 +60,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
 
     return (
         <div className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}>
-            <AppLink className={cls.cardLink} to={RoutePath.article_details + article.id} target={target}>
+            <AppLink className={cls.cardLink} to={getRouteArticleDetails(article.id)} target={target}>
                 <Card className={cls.card}>
                     <div className={cls.imgBlock}>
                         <img src={article.img} alt={article.title} className={cls.img} />
