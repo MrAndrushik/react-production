@@ -5,8 +5,8 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './ArticleViewSelector.module.scss';
 import BigIcon from '@/shared/assets/icons/big.svg';
 import SmallIcon from '@/shared/assets/icons/small.svg';
-import { Button, ThemeButton } from '@/shared/ui/Button/Button';
-import { Icon } from '@/shared/ui/Icon/Icon';
+import { Button, ThemeButton } from '@/shared/ui/Button';
+import { Icon } from '@/shared/ui/Icon';
 
 interface ArticleViewSelectorProps {
     className?: string;
