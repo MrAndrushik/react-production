@@ -10,7 +10,7 @@ import { AvatarDropdown } from '@/features/avatarDropdown';
 import { NotificationButton } from '@/features/notificationButton';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
+import { RoutePath } from '@/shared/const/router';
 import { AppLink } from '@/shared/ui/AppLink/AppLink';
 import { Button } from '@/shared/ui/Button/Button';
 import { HStack } from '@/shared/ui/Stack';
@@ -39,9 +39,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
             <header className={classNames(cls.Navbar, {}, [className])}>
                 {theme === Theme.DARK ? <LogoLight /> : <LogoDark />}
                 <div className={cls.linkWrapper}>
-                    <AppLink to={RoutePath.article_create}>
-                        {t('Создать статью')}
-                    </AppLink>
+                    <AppLink to={RoutePath.article_create}>{t('Создать статью')}</AppLink>
                     <HStack gap='16' className={cls.actions}>
                         <NotificationButton />
                         <AvatarDropdown />
@@ -57,9 +55,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
             <div className={cls.linkWrapper}>
                 <Button onClick={onShowModal}>{t('Войти')}</Button>
             </div>
-            {isAuthModal && (
-                <LoginModal isOpen={isAuthModal} onClose={onCloseModal} />
-            )}
+            {isAuthModal && <LoginModal isOpen={isAuthModal} onClose={onCloseModal} />}
         </header>
     );
 });
