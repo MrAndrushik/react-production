@@ -47,5 +47,9 @@ module.exports = {
             'error',
             { alias: '@', testFilesPatterns: ['**/*.test.*', '**/*.story.*', '**/StoreDecorator.tsx'] },
         ],
+        'mrandrushik-eslint-path-checker/layer-imports': [
+            'error',
+            { alias: '@', ignoreImportPatterns: ['**/StoreProvider', '**/testing'] },
+        ],
     },
 };

@@ -1,10 +1,11 @@
-import { Theme, useTheme } from '@/app/providers/ThemeProvider';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import GlobusIcon from '@/shared/assets/icons/earth.svg';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Button, ThemeButton } from '../../../shared/ui/Button/Button';
 import cls from './LangSwitcher.module.scss';
+import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
+import { Theme } from '@/shared/const/theme';
 
 interface LangSwitcherProps {
     className?: string;

@@ -1,5 +1,5 @@
+import { Theme } from '@/shared/const/theme';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { Theme } from '../../../app/providers/ThemeProvider';
 import { ThemeDecorator } from '../../config/storybook/ThemeDecorator/ThemeDecorator';
 
 import { Text, TextSize, TextTheme } from './Text';

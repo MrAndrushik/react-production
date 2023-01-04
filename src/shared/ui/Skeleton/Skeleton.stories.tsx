@@ -1,16 +1,14 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { Theme } from '@/app/providers/ThemeProvider';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Skeleton } from './Skeleton';
+import { Theme } from '@/shared/const/theme';
 
 export default {
     title: 'shared/Skeleton',
     component: Skeleton,
 } as ComponentMeta<typeof Skeleton>;
 
-const Template: ComponentStory<typeof Skeleton> = (args) => (
-    <Skeleton {...args} />
-);
+const Template: ComponentStory<typeof Skeleton> = (args) => <Skeleton {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {

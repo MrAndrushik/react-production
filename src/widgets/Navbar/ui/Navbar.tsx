@@ -3,7 +3,6 @@ import LogoDark from '@/shared/assets/icons/logo-dark.svg';
 import LogoLight from '@/shared/assets/icons/logo-light.svg';
 import { classNames } from '@/shared/lib/classNames/classNames';
 
-import { Theme, useTheme } from '@/app/providers/ThemeProvider';
 import { getUserAuthData } from '@/entities/User';
 import { LoginModal } from '@/features/AuthByUsername';
 import { AvatarDropdown } from '@/features/avatarDropdown';
@@ -15,6 +14,8 @@ import { AppLink } from '@/shared/ui/AppLink/AppLink';
 import { Button } from '@/shared/ui/Button/Button';
 import { HStack } from '@/shared/ui/Stack';
 import cls from './Navbar.module.scss';
+import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
+import { Theme } from '@/shared/const/theme';
 
 interface NavbarProps {
     className?: string;
