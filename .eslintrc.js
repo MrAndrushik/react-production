@@ -43,6 +43,9 @@ module.exports = {
         '@typescript-eslint/no-non-null-assertion': 'off',
         '@typescript-eslint/array-type': 'off',
         'mrandrushik-eslint-path-checker/path-checker': ['error', { alias: '@' }],
-        'mrandrushik-eslint-path-checker/public-api-imports': ['error', { alias: '@' }],
+        'mrandrushik-eslint-path-checker/public-api-imports': [
+            'error',
+            { alias: '@', testFilesPatterns: ['**/*.test.*', '**/*.story.*', '**/StoreDecorator.tsx'] },
+        ],
     },
 };
