@@ -9,8 +9,9 @@ import { useInfiniteScroll } from '@/shared/lib/hooks/useInfiniteScroll/useInfin
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { useThrottle } from '@/shared/lib/hooks/useThrottle/useThrottle';
 import cls from './Page.module.scss';
+import { TestProps } from '@/shared/types/tests';
 
-interface PageProps {
+interface PageProps extends TestProps {
     className?: string;
     children: ReactNode;
     onScrollEnd?: () => void;
@@ -22,9 +23,7 @@ export const Page = memo((props: PageProps) => {
     const triggerRef = useRef() as MutableRefObject<HTMLDivElement>;
     const dispatch = useAppDispatch();
     const { pathname } = useLocation();
-    const scrollPosition = useSelector((state: StateSchema) =>
-        getUIScrollByPath(state, pathname)
-    );
+    const scrollPosition = useSelector((state: StateSchema) => getUIScrollByPath(state, pathname));
 
     useInfiniteScroll({
         triggerRef,
@@ -47,6 +46,7 @@ export const Page = memo((props: PageProps) => {
 
     return (
         <main
+            data-testid={props['data-testid'] ?? 'Page'}
             ref={wrapperRef}
             className={classNames(cls.Page, {}, [className])}
             onScroll={onScroll}

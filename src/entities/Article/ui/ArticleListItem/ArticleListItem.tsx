@@ -1,11 +1,13 @@
 import EyeIcon from '@/shared/assets/icons/eye.svg';
 import { getRouteArticleDetails } from '@/shared/const/router';
 import { classNames } from '@/shared/lib/classNames/classNames';
+import { AppImage } from '@/shared/ui/AppImage';
 import { AppLink } from '@/shared/ui/AppLink';
 import { Avatar } from '@/shared/ui/Avatar';
 import { Button } from '@/shared/ui/Button';
 import { Card } from '@/shared/ui/Card';
 import { Icon } from '@/shared/ui/Icon';
+import { Skeleton } from '@/shared/ui/Skeleton';
 import { Text } from '@/shared/ui/Text';
 import { HTMLAttributeAnchorTarget, memo } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -46,7 +48,12 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
                         </div>
                         <Text title={article.title} className={cls.title} />
                         <div className={cls.infoBlock}>{types}</div>
-                        <img src={article.img} alt={article.title} className={cls.img} />
+                        <AppImage
+                            fallback={<Skeleton width='100%' height={300} />}
+                            src={article.img}
+                            alt={article.title}
+                            className={cls.img}
+                        />
                         {textBlock && <ArticleTextBlockComponent block={textBlock} className={cls.textBlock} />}
                         <div className={cls.footer}>
                             <Button>{t('Читать далее')}</Button>
@@ -63,7 +70,12 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
             <AppLink className={cls.cardLink} to={getRouteArticleDetails(article.id)} target={target}>
                 <Card className={cls.card}>
                     <div className={cls.imgBlock}>
-                        <img src={article.img} alt={article.title} className={cls.img} />
+                        <AppImage
+                            fallback={<Skeleton width='100%' height={200} />}
+                            src={article.img}
+                            alt={article.title}
+                            className={cls.img}
+                        />
                         <Text text={article.createdAt} className={cls.date} />
                     </div>
                     <div className={cls.infoBlock}>
