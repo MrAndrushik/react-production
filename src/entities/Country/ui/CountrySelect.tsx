@@ -19,26 +19,24 @@ const options = [
     { value: Country.Kazakhstan, content: Country.Kazakhstan },
 ];
 
-export const CountrySelect = memo(
-    ({ className, value, onChange, readonly }: CountrySelectProps) => {
-        const { t } = useTranslation('profile');
+export const CountrySelect = memo(({ className, value, onChange, readonly }: CountrySelectProps) => {
+    const { t } = useTranslation('profile');
 
-        const onChangeHandler = useCallback(
-            (value: string) => {
-                onChange?.(value as Country);
-            },
-            [onChange]
-        );
+    const onChangeHandler = useCallback(
+        (value: string) => {
+            onChange?.(value as Country);
+        },
+        [onChange]
+    );
 
-        return (
-            <Select
-                readonly={readonly}
-                className={classNames('', {}, [className])}
-                label={t('Укажите страну')}
-                options={options}
-                value={value}
-                onChange={onChangeHandler}
-            />
-        );
-    }
-);
+    return (
+        <Select
+            readonly={readonly}
+            className={classNames('', {}, [className])}
+            label={t('Укажите страну')}
+            options={options}
+            value={value}
+            onChange={onChangeHandler}
+        />
+    );
+});

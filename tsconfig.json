@@ -17,7 +17,6 @@
         "allowSyntheticDefaultImports": true,
         "isolatedModules": true
     },
-
     "ts-node": {
         "compilerOptions": {
             "module": "CommonJS"

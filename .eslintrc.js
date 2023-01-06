@@ -10,6 +10,7 @@ module.exports = {
         'standard-with-typescript',
         'prettier',
         'plugin:i18next/recommended',
+        'plugin:storybook/recommended',
     ],
     overrides: [],
     parserOptions: {
@@ -18,6 +19,7 @@ module.exports = {
         project: ['./tsconfig.json'],
     },
     plugins: ['react', 'i18next', 'react-hooks', 'mrandrushik-eslint-path-checker', 'unused-imports'],
+    // ignorePatterns: ['./node_modules', './cypress.config.ts'],
     rules: {
         semi: ['error', 'always'],
         quotes: ['error', 'single'],
@@ -42,14 +44,25 @@ module.exports = {
         '@typescript-eslint/no-invalid-void-type': 'off',
         '@typescript-eslint/no-non-null-assertion': 'off',
         '@typescript-eslint/array-type': 'off',
-        'mrandrushik-eslint-path-checker/path-checker': ['error', { alias: '@' }],
+        'mrandrushik-eslint-path-checker/path-checker': [
+            'error',
+            {
+                alias: '@',
+            },
+        ],
         'mrandrushik-eslint-path-checker/public-api-imports': [
             'error',
-            { alias: '@', testFilesPatterns: ['**/*.test.*', '**/*.story.*', '**/StoreDecorator.tsx'] },
+            {
+                alias: '@',
+                testFilesPatterns: ['**/*.test.*', '**/*.story.*', '**/StoreDecorator.tsx'],
+            },
         ],
         'mrandrushik-eslint-path-checker/layer-imports': [
             'error',
-            { alias: '@', ignoreImportPatterns: ['**/StoreProvider', '**/testing'] },
+            {
+                alias: '@',
+                ignoreImportPatterns: ['**/StoreProvider', '**/testing'],
+            },
         ],
         'unused-imports/no-unused-imports': 'error',
     },
