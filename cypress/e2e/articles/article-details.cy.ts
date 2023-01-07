@@ -13,6 +13,7 @@ describe('Пользователь заходит на страницу articleD
     afterEach(() => {
         cy.removeArticle(currentArticleId);
     });
+
     it('Отображение статьи', () => {
         cy.getByTestId('ArticleDetails').should('exist');
     });
@@ -26,6 +27,7 @@ describe('Пользователь заходит на страницу articleD
         cy.getByTestId('CommentCard.Content').should('exist');
     });
     it('Оценка статьи', () => {
+        cy.intercept('GET', '**/articles/*', { fixture: 'article-details.json' });
         cy.getByTestId('ArticleDetails');
         cy.getByTestId('RaitingCard').scrollIntoView();
         cy.setRate(4, 'feedback');
