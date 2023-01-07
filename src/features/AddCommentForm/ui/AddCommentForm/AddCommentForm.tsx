@@ -2,21 +2,12 @@ import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import {
-    DynamicModuleLoader,
-    ReducersList,
-} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Button } from '@/shared/ui/Button';
 import { Input } from '@/shared/ui/Input';
-import {
-    getAddCommentFormError,
-    getAddCommentFormText,
-} from '../../model/selectors/addCoomentFormSelectors';
-import {
-    addCommentFormActions,
-    addCommentFormReducer,
-} from '../../model/slices/addCommentFormSlice';
+import { getAddCommentFormError, getAddCommentFormText } from '../../model/selectors/addCoomentFormSelectors';
+import { addCommentFormActions, addCommentFormReducer } from '../../model/slices/addCommentFormSlice';
 import cls from './AddCommentForm.module.scss';
 
 export interface AddCommentFormProps {
@@ -49,14 +40,17 @@ const AddCommentForm = memo((props: AddCommentFormProps) => {
 
     return (
         <DynamicModuleLoader reducers={reducers}>
-            <div className={classNames(cls.AddCommentForm, {}, [className])}>
+            <div data-testid='AddCommentForm' className={classNames(cls.AddCommentForm, {}, [className])}>
                 <Input
+                    data-testid='AddCommentForm.Input'
                     className={cls.input}
                     value={text}
                     onChange={onCommentTextChange}
                     placeholder={t('Введите текст комментария')}
                 />
-                <Button onClick={onSendHandler}>{t('Отправить')}</Button>
+                <Button data-testid='AddCommentForm.Button' onClick={onSendHandler}>
+                    {t('Отправить')}
+                </Button>
             </div>
         </DynamicModuleLoader>
     );

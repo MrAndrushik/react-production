@@ -31,7 +31,7 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
 
     return (
         <DynamicModuleLoader reducers={reducerList}>
-            <Page className={classNames(cls.ArticleDetailsPage, {}, [className])}>
+            <Page data-testid='ArticleDetailsPage' className={classNames(cls.ArticleDetailsPage, {}, [className])}>
                 <ArticleDetailsPageHeader />
                 <ArticleDetails id={id} />
                 <ArticleRaiting className={cls.raiting} articleId={id} />
